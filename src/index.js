@@ -16,6 +16,7 @@ app.use(userRouter);
 app.use(taskRouter);
 app.use(express.static('public'));
 app.use(errorHandler);
+app.use(cors());
 
 
 app.listen(port, () => {
