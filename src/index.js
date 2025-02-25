@@ -19,7 +19,7 @@ app.use(express.static('public'));
 app.use(errorHandler);
 
 app.use(cors({
-    origin: 'https://task-manager-final-cpti.onrender.com/',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
