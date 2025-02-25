@@ -15,5 +15,5 @@ yarn-error.log*
 # IDE/Editor
 .vscode/
 .idea/
-images/node-course-images
+src/images/node-course-images
 config
