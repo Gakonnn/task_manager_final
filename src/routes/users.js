@@ -20,21 +20,13 @@ router.post('/users', validateUser, async (req, res) => {
 
 router.post('/users/login', async (req, res) => {
     try {
-        console.log("Получен запрос на логин:", req.body);  // ✅ Логируем входные данные
-
-        const user = await User.findByCredentials(req.body.email, req.body.password);
-        console.log("Найден пользователь:", user);  // ✅ Логируем найденного пользователя
-
-        const token = await user.generateAuthToken();
-        console.log("Сгенерирован токен:", token);  // ✅ Логируем токен
-
-        res.send({ user, token });
+        const user = await User.findByCredentials(req.body.email, req.body.password)
+        const token = await user.generateAuthToken()
+        res.send({ user, token })
     } catch (error) {
-        console.error("Ошибка при логине:", error);  // ❌ Логируем ошибку
-        res.status(400).send({ error: "Login failed" });
+        res.status(400).send()
     }
-});
-
+})
 
 router.post('/users/logout', auth, async (req, res, next) => {
     try {
