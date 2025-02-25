@@ -12,17 +12,18 @@ require('./db/mongoose');
 const userRouter = require('./routes/users');
 const taskRouter = require('./routes/tasks');
 
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);
 app.use(express.static('public'));
 app.use(errorHandler);
 
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
 
 
 app.listen(port, () => {
