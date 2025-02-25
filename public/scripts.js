@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'https://task-manager-final-cpti.onrender.com';
 let token = '';
 
 function showSection(sectionId) {
