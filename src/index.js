@@ -17,7 +17,12 @@ app.use(userRouter);
 app.use(taskRouter);
 app.use(express.static('public'));
 app.use(errorHandler);
-app.use(cors());
+
+app.use(cors({
+    origin: 'https://task-manager-final-cpti.onrender.com/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 
 app.listen(port, () => {
